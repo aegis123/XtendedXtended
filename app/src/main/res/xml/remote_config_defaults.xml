@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>default_text</key>
+        <value>Default value saved in app remote_config_defaults.xml and not in strings.xml</value>
+    </entry>
+    <entry>
+        <key>default_boolean</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>default_text</key>
+        <value>fragment_red</value>
+    </entry>
+</defaultsMap>

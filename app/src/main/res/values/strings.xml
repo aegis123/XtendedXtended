@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Xtended Xtended</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="crash_app">crash app</string>
+    <string name="send_non_fatal_report">send non-fatal report</string>
+    <string name="some_info_text">where here to crash your app</string>
+    <string name="remote_config">Remote Config</string>
+</resources>

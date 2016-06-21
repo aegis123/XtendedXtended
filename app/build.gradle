@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+    defaultConfig {
+        applicationId "com.karify.xtendedxtended"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'long', 'REMOTE_CONFIG_CACHE_EXPIRATION', '3600' // 1 hour in seconds default is 43200 (12 hours).
+    }
+
+    compileOptions {
+        incremental true
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'long', 'REMOTE_CONFIG_CACHE_EXPIRATION', '3600' // for development expire cache immediately
+        }
+        debug {
+            buildConfigField 'long', 'REMOTE_CONFIG_CACHE_EXPIRATION', '0' // for development expire cache immediately
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    final firebaseVersion = '9.0.2'
+    compile 'com.google.firebase:firebase-crash:' + firebaseVersion
+    compile 'com.google.firebase:firebase-crash:9.0.2'
+    compile 'com.google.firebase:firebase-config:' + firebaseVersion
+
+    final supportVersion = '24.0.0'
+    compile 'com.android.support:appcompat-v7:' + supportVersion
+    compile 'com.android.support:design:' + supportVersion
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
+
+    final butterknifeVersion = '8.1.0'
+    compile 'com.jakewharton:butterknife:' + butterknifeVersion
+    apt 'com.jakewharton:butterknife-compiler:' + butterknifeVersion
+
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support:support-annotations:' + supportVersion
+}
+
+
+apply plugin: 'com.google.gms.google-services'
